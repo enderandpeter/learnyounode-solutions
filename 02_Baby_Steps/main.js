@@ -1,7 +1,7 @@
-var args = process.argv.splice(2);
+const args = process.argv.splice(2);
 var sum = 0;
 
-for(var index in args){
+for(let index in args){
 	sum += Number(args[index]);
 }
 

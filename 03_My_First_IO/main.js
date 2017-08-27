@@ -1,9 +1,9 @@
-var fs = require('fs');
+const fs = require('fs');
 
-var buffer = fs.readFileSync(process.argv[2]);
+const buffer = fs.readFileSync(process.argv[2]);
 
-var bufferString = buffer.toString();
+const bufferString = buffer.toString();
 
-var lineCount = bufferString.split('\n').length - 1;
+const lineCount = bufferString.split('\n').length - 1;
 
 console.log(lineCount);

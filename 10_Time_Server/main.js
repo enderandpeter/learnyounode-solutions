@@ -1,19 +1,17 @@
-function zerofill(num){
-	return num < 10 ? '0' + num : num;
-}
+const zerofill = (num) => num < 10 ? '0' + num : num;
 
-var net = require('net');
+const net = require('net');
 
-var port = process.argv[2];
+const port = process.argv[2];
 
-net.createServer(function(socket){
-	var date = new Date();	
+net.createServer( (socket) => {
+	const date = new Date();	
 	
-	var month = zerofill(date.getMonth() + 1);
-	var dayOfMonth = zerofill(date.getDate());
-	var hours = zerofill(date.getHours());
-	var minutes = zerofill(date.getMinutes());
+	const month = zerofill(date.getMonth() + 1);
+	const dayOfMonth = zerofill(date.getDate());
+	const hours = zerofill(date.getHours());
+	const minutes = zerofill(date.getMinutes());
 	
-	var dateString = date.getFullYear() + '-' + month + '-' + dayOfMonth + ' ' + hours + ':' + minutes;
+	const dateString = `${date.getFullYear()}-${month}-${dayOfMonth} ${hours}:${minutes}`;
 	socket.end(dateString + '\n');
 }).listen(port);

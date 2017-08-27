@@ -1,18 +1,18 @@
-var http = require('http');
-var url = require('url');
+const http = require('http');
+const url = require('url');
 
-var port = process.argv[2];
+const port = process.argv[2];
 
-http.createServer(function(request, response){
-	var urlParts = url.parse(request.url, true);
-	var path = urlParts.pathname;
-	var query = urlParts.query;	
+http.createServer( (request, response) => {
+	const urlParts = url.parse(request.url, true);
+	const path = urlParts.pathname;
+	const query = urlParts.query;	
+	const date = new Date(query.iso);
+	let data = {};
 	
 	switch(path){
 		case '/api/parsetime':
-			var date = new Date(query.iso);
-			
-			var data = {
+			data = {
 				hour : date.getHours(),
 				minute : date.getMinutes(),
 				second : date.getSeconds()
@@ -20,9 +20,7 @@ http.createServer(function(request, response){
 		break;
 		
 		case '/api/unixtime':
-			var date = new Date(query.iso);
-			
-			var data = {
+			data = {
 				unixtime : date.valueOf()
 			}
 		break;

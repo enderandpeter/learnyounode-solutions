@@ -1,14 +1,14 @@
-var http = require('http');
-var bl = require('bl');
+const http = require('http');
+const bl = require('bl');
 
-var url = process.argv[2];
+const url = process.argv[2];
 
-http.get(url, function(response){
+http.get(url, (response) => {
 	response.setEncoding('utf8')
-	.pipe(bl(function(err, data){
+	.pipe(bl( (err, data) => {
 		if (err) throw err;
 		
-		var dataString = data.toString();
+		const dataString = data.toString();
 		
 		console.log(dataString.length);
 		console.log(dataString);

@@ -1,12 +1,12 @@
-var readDir = require('./readDir');
+const readDir = require('./readDir');
 
-var filePath = process.argv[2];
-var filterExtension = process.argv[3];
+const filePath = process.argv[2];
+const filterExtension = process.argv[3];
 
-readDir(filePath, filterExtension, function(err, data){
+readDir(filePath, filterExtension, (err, data) => {
 	if(err) throw err;
 	
-	for(var index in data){
+	for(let index in data){
 		console.log(data[index]);
 	}	
 });

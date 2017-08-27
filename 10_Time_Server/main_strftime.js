@@ -1,12 +1,10 @@
-function zerofill(num){
-	return num < 10 ? '0' + num : num;
-}
+const zerofill = (num) => num < 10 ? '0' + num : num;
 
-var net = require('net');
-var strftime = require('strftime');
+const net = require('net');
+const strftime = require('strftime');
 
-var port = process.argv[2];
+const port = process.argv[2];
 
-net.createServer(function(socket){
+net.createServer( (socket) => {
 	socket.end(strftime('%F %R', new Date()) + '\n');
 }).listen(port);
