@@ -1,9 +1,9 @@
-var http = require('http');
-var map = require('through2-map');
+const http = require('http');
+const map = require('through2-map');
 
-var port = process.argv[2];
+const port = process.argv[2];
 
-http.createServer(function(request, response){
+http.createServer((request, response) => {
 	if(request.method === 'POST'){
 		request.pipe(map( (chunk) => chunk.toString().toUpperCase()
 		)).pipe(response);
