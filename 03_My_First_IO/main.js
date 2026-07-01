@@ -1,3 +1,4 @@
+// import * as fs from 'node:fs'
 const fs = require('fs');
 
 const buffer = fs.readFileSync(process.argv[2]);

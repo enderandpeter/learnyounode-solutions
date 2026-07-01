@@ -1,8 +1,8 @@
-const args = process.argv.splice(2);
-var sum = 0;
+const args = process.argv.slice(2);
 
-for(let index in args){
-	sum += Number(args[index]);
-}
+const sum = args.reduce((acc, cur) => {
+	acc += Number(cur)
+	return acc
+}, 0)
 
 console.log(sum);

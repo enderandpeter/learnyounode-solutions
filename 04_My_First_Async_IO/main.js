@@ -1,3 +1,5 @@
+// import * as fs from 'node:fs'
+
 function countNewlines(data){
 	return data.split('\n').length - 1;
 }
